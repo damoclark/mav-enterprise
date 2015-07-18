@@ -1,0 +1,29 @@
+{
+	"name": "mylms-tools/mav-enterprise",
+	"description": "Moodle Activity Viewer is an open-source Greasemonkey user script and server counterpart that visualises student activity within the Moodle LMS using heat maps.",
+	"keywords": [
+		"Moodle","Learning Analytics","Greasemonkey","User Script"
+	],
+	"homepage": "https://github.com/damoclark/mav-enterprise",
+	"license": "GPL-3.0",
+	"authors": [
+		{
+			"name": "Damien Clark",
+			"email": "damo.clarky@gmail.com",
+			"homepage": "http://damos.world",
+			"role": "Creator, Developer"
+		},
+		{
+			"name": "Rolley Tickner",
+			"role": "Graphic Designer"
+		}
+	],
+	"support": {
+		"email": "damo.clarky@gmail.com",
+	},
+	"require":
+	{
+		"smarty/smarty": "~3.1",
+		"arara/process": "~1.9"
+	}
+}

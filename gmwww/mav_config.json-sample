@@ -1,0 +1,14 @@
+
+{
+	"mav_server": "http://localhost",
+
+	"mav_server_html": "http://localhost/mav2",
+
+	"gm_script_path": "http://localhost/mav2/gm",
+
+	"mav_server_api": "http://localhost/mav2/api",
+
+	"mav_jquery_html": "http://localhost/htmllib/themelib",
+
+	"debug": true
+}

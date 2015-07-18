@@ -1,0 +1,27 @@
+[MOODLE27_PROD]
+; moodle 2.7 prod database
+adapter = pgsql
+host = moodledb.com
+dbname = moodle27_prod
+port = 5432
+username = moodle
+password = ''
+
+[MOODLE27_LOADTEST]
+; moodle 2.7 loadtest database
+adapter = pgsql
+host = moodledb.com
+dbname = moodle27_loadtest
+port = 5433
+username = moodle
+password = ''
+
+[MOODLE22_PROD]
+; moodle 2.2 prod database
+adapter = pgsql
+host = moodledb.com
+dbname = moodle2_prod
+port = 5432
+username = moodle
+password = ''
+

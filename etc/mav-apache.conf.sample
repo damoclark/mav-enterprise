@@ -1,0 +1,88 @@
+#Apache 2.4
+<Directory "/usr/local/www/mav/www">
+
+#
+# Possible values for the Options directive are "None", "All",
+# or any combination of:
+#   Indexes Includes FollowSymLinks SymLinksifOwnerMatch ExecCGI MultiViews
+#
+# Note that "MultiViews" must be named *explicitly* --- "Options All"
+# doesn't give it to you.
+#
+#
+    Options Indexes FollowSymLinks
+
+#
+# AllowOverride controls what directives may be placed in .htaccess files.
+# It can be "All", "None", or any combination of the keywords:
+#   Options FileInfo AuthConfig Limit
+#
+    AllowOverride none
+
+#
+# Controls who can get stuff from this server.
+#
+    Require all granted
+
+    SetEnv APPDIR "/usr/local/www/mav"
+    SetEnv PHP_INCLUDE_PATH "/usr/local/www/mav/lib:/usr/local/www/lib/oltlib/term:/var/simplesamlphp"
+    SetEnv SMARTYDIR "/usr/local/www/mav/smarty"
+    SetEnv SMARTYSHAREDDIR "/usr/local/www/lib/oltlib/OLT_Smarty/templates"
+    #Not using ignition authentication - using http auth
+    SetEnv AUTHCLASS "ignition_auth_http"
+    SetEnv APPCONFCLASS "MavConfig"
+    SetEnv APPCONF "etc/mav.ini"
+
+    #Set debug level for development server
+    SetEnv DEBUG "9"
+    
+    #################################
+    #################
+    #This environment variable flags to the system that it is running on dev
+    #box.  Do not set this env variable on production machine
+    SetEnv DEV "1"
+</Directory>
+
+#Publish separate directory for the gm scripts without authentication
+<Directory "/usr/local/www/mav/gmwww">
+
+    Options Indexes FollowSymLinks
+    AllowOverride none
+
+    Require all granted
+
+    #Do not cache any greasemonkey file types - browser must download anew when updating
+    #http://www.askapache.com/htaccess/using-http-headers-with-htaccess.html#100_Prevent_Files_cached
+    <FilesMatch ".(html|js|json|css|php)$">
+      FileETag None
+      <ifModule mod_headers.c>
+        Header unset ETag
+        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+      </ifModule>
+    </FilesMatch>
+
+</Directory>
+
+<Directory /usr/local/www/mav/www/api>
+
+    #Authentication Configuration for LDAP
+    Require all granted
+
+    AuthName "Moodle Activity Viewer"
+    AuthType Basic
+    AuthBasicProvider ldap
+    AuthLDAPUrl ldap://ldap.server.com/ou=people?uid
+    AuthLDAPGroupAttribute uniqueMember
+    Require ldap-attribute affiliatetype=STAFF
+    Satisfy any
+
+    #Set path to .ini file for database configuration (used by PDOdatabase.php)
+    SetEnv DBCONF "/usr/local/www/mav/etc/database.ini"
+</Directory>
+
+Alias /mav/gm "/usr/local/www/mav/gmwww"
+Alias /mav "/usr/local/www/mav/www"
+
+

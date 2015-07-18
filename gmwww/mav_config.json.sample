@@ -1,0 +1,14 @@
+
+{
+	"mav_server": "https://server.com",
+
+	"mav_server_html": "https://server.com/mav",
+
+	"gm_script_path": "https://server.com/mav/gm",
+
+	"mav_server_api": "https://server.com/mav/api",
+
+	"mav_jquery_html": "https://server.com/mav/js",
+
+	"debug": true
+}
