@@ -13,7 +13,7 @@
  * the script is to update via the --update option.
  *
  * Usage:
- * php update_db_summary.php [--help] [--debug] [--jobs=1] --update=<SECTIONNAME>
+ * php mav_update_summary.php [--help] [--debug] [--jobs=1] --update=<SECTIONNAME>
  * 
  */
 
