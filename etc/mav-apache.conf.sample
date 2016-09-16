@@ -41,15 +41,6 @@
     #This environment variable flags to the system that it is running on dev
     #box.  Do not set this env variable on production machine
     SetEnv DEV "1"
-</Directory>
-
-#Publish separate directory for the gm scripts without authentication
-<Directory "/usr/local/www/mav/gmwww">
-
-    Options Indexes FollowSymLinks
-    AllowOverride none
-
-    Require all granted
 
     #Do not cache any greasemonkey file types - browser must download anew when updating
     #http://www.askapache.com/htaccess/using-http-headers-with-htaccess.html#100_Prevent_Files_cached
@@ -82,7 +73,6 @@
     SetEnv DBCONF "/usr/local/www/mav/etc/database.ini"
 </Directory>
 
-Alias /mav/gm "/usr/local/www/mav/gmwww"
 Alias /mav "/usr/local/www/mav/www"
 
 
