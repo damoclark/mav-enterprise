@@ -25,9 +25,9 @@
     Require all granted
 
     SetEnv APPDIR "/usr/local/www/mav"
-    SetEnv PHP_INCLUDE_PATH "/usr/local/www/mav/lib:/usr/local/www/lib/oltlib/term:/var/simplesamlphp"
+    SetEnv PHP_INCLUDE_PATH "/usr/local/www/mav/lib"
     SetEnv SMARTYDIR "/usr/local/www/mav/smarty"
-    SetEnv SMARTYSHAREDDIR "/usr/local/www/lib/oltlib/OLT_Smarty/templates"
+    SetEnv SMARTYSHAREDDIR "/usr/local/www/ignition/templates"
     #Not using ignition authentication - using http auth
     SetEnv AUTHCLASS "ignition_auth_http"
     SetEnv APPCONFCLASS "MavConfig"
