@@ -1,0 +1,254 @@
+div#headerArea h1 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	position:absolute;
+	margin: 0px 0px 0px 0px;	
+	padding: 0px;
+	top: 14px;
+	left: 20px;
+	text-transform: capitalize;
+}
+
+h2 {
+	color: #424F58;
+	font-size:16px;
+	padding: 5px 0px 3px 0px;
+	margin: 10px 0px 10px 0px;
+}
+h2#pageTitle {
+	padding: 0px;
+}
+blockquote {
+	padding: 15px 0px 0px 20px;
+	font-size: 11px;
+}
+span.tab {margin-left: 25px; }
+
+h3 {
+	color: #424F58;
+	font-size:14px;
+}
+h3#subTitle {
+	margin-bottom:2px;	
+}
+div.ui-widget-header h3 {
+	color: white;
+	margin-top:none;
+	padding-top: 5px;	
+}
+h3.ui-widget-header {
+	color: #343D42;	
+}
+h4, h5 {
+	color: #424F58;
+	font-size:12px;
+	font-weight: bold;
+	padding: 5px 0px 3px 0px;
+	margin: 10px 0px 10px 0px;
+}
+pre, code {
+	white-space:pre-wrap;	
+	font-family: "Avant Garde", Tahoma, Helvetica, Arial, sans-serif;
+}
+p{
+	color: #333333;
+	font-size:11px;
+	padding: 3px 0px 2px 0px;
+	margin: 10px 0px 10px 0px;
+}
+ul, dl, ol {
+	color: #333333;
+	font-size:11px;
+	font-weight:normal;
+}
+dt {
+	color: #323a3f;
+	font-size:10px;
+	font-weight: bold;
+}
+dd {
+	margin-bottom: 5px;	
+	padding-bottom: 5px;
+	border-bottom: 1px solid #b2b4b7;
+	font-size:10px;
+}
+
+dt.ui-accordion-header, dd.ui-accordion-content, dd p {
+	font-size:10px;	
+}
+dd p { color:#999999}
+
+.important { font-weight: bold; color:#C6006F; }
+.bold {font-weight: bold;}
+.italic {font-style: italic;}
+.fineprint {font-size: 9px;}
+body#mobile h3 span.fineprint {
+	font-size: 12px;	
+}
+
+h3.ui-accordion-header {
+	font-size:13px;
+	font-weight:bold;
+}
+.commentBoxes a {
+	cursor: pointer;	
+	color: #2E83FF !important;
+}
+div#wrapper a:link, div#wrapper a:visited, a:link, a:visited {
+	color: #2E83FF;
+	text-decoration:none;
+}
+div#wrapper a:hover, div#wrapper a:active, a:hover, a:active {
+	color: #C6006F;
+	text-decoration:none;
+}
+div#dialog p {
+	color: #333;
+}	
+div#footer p {
+	font-size: 9px;
+	color:#999;
+}	
+
+div#loading {
+	text-align: center;	
+	margin-top: 15px;
+}
+div.ui-state-error, div.ui-state-highlight {
+	padding: 10px;
+	margin-bottom: 10px;
+	font-size: 11px;
+}
+th.ui-state-error {font-weight: normal !important;}
+th.ui-state-error span.bold {font-weight:bold;}
+
+ul.icons {margin: 0; padding: 0;}
+ul.icons li {margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none;}
+ul.icons span.ui-icon {float: left; margin: 0 4px;}
+
+
+ul.draggable {
+	padding: 5px 5px 5px 5px; 
+	margin: 13px 0px 15px 0px;	
+	border: 1px solid #d3e2ee;
+	display:block;
+}
+ul.draggable li {
+	padding: 3px;
+	list-style:none;	
+	margin: 5px 0px 5px 0px;
+	color: #333;
+	border: 1px solid #97b7cf;
+	background-color: #ffffff;
+}
+ul.draggable.over {
+	border-color: #97b7cf;	
+}
+
+ul.draggable.over li {
+	border-color: #244d74;	
+	background-color: #ffffff;
+}
+table.draggableCols {
+	width: 100%;
+	border:none;
+	padding:none; margin:none;	
+}
+table.draggableCols td {
+	width: 50%;
+	padding:0px;
+	vertical-align:top;	
+	border:none;
+}
+table.studentsList {
+	width:100%; 
+	border: none; 
+	margin-top: 20px;
+}
+table.studentsList td {
+	vertical-align: top !important;	
+	border:none;
+}
+table.studentsList td table td {
+	border: 1px solid #aaa !important;	
+}
+div#loginDetails a:link, div#loginDetails a:visited {
+	color: #C1D82F;	
+	text-decoration:none;
+}
+div#loginDetails a:hover, div#loginDetails a:active {
+	color: #C6006F;
+	text-decoration:none;	
+}
+
+div.content.padded {
+	padding: 0px 15px 20px 15px;	
+}
+
+div#tabs li {
+	font-size: 12px;	
+}
+div#tabs li.ui-state-default a {
+	color: #ffffff;
+}
+div#tabs li.ui-state-active a {
+	color: #2E83FF;
+}
+.ui-tabs .ui-tabs-nav li a{
+	padding: 5px 15px 3px 15px;	
+}
+
+table.ui-widget-content {
+	width: 100%;
+	border-collapse:collapse;	
+}
+table.ui-widget-content td, table.ui-widget-content th {
+	padding: 5px;	
+	font-size: 12px;
+	text-align: left;
+}
+
+.ui-tabs .ui-tabs-panel {
+	padding: 10px;	
+}
+
+span.displayComments, span.editButtons {
+	font-size: 10px;	
+}
+
+p#loading {text-align: center;}
+
+/* forms */
+form { 
+	padding-bottom: 15px;
+}
+span.middle {
+display:block; text-align:center;	
+}
+fieldset {
+	font-size: 11px;	
+	padding: 10px;
+}
+fieldset p {
+	margin-top: 0px;	
+}
+input[type^=radio] {
+	display:inline;
+	width: auto;
+	margin: 0px 10px 0px 0px;
+}
+label {
+	display: inline;
+}
+input.ui-button{
+	font-size:12px !important;	
+}
+div#ui-datepicker-div { display:none; }
+
+ul#tabs li {
+	font-size: 12px;
+}
+span.ui-button-text { font-size:13px; }
+div#ui-datepicker-div { font-size: 11px; }
+

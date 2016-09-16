@@ -1,0 +1,71 @@
+html{ height: 100%; }
+
+body {
+	height: 100%;
+	font-family: "Avant Garde", Tahoma, Helvetica, Arial, sans-serif;
+	padding: 0px;
+	margin: 0px;
+}
+
+body#standard {
+	background: #ffffff url('images/bggrad.jpg') repeat-x 58px 0px;
+}
+
+body#standard div#wrapper {
+	width:100%;
+	margin: auto;
+	text-align: left;
+	border-top: 1px solid #5091cd;
+	margin-top: 1px;
+}
+
+div#headerArea {
+	position: relative;
+	width: 100%;
+	height: 56px;
+	background: #003567; /* for non-css3 browsers */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#14334F', endColorstr='#003567'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#14334F), to(#003567)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #14334F,  #003567); /* for firefox 3.6+ */
+	text-align: left;
+}
+div#menu, div#loginDetails {
+	font-size: 10px;	
+	color:white;
+	text-align:left;
+}
+div#loginDetails {
+	position: absolute;
+	top: 34px;
+	left: 20px;
+	z-index:12;
+}
+body#standard div#footer {
+	padding: 0px 20px 20px 20px;	
+}
+
+div#breadcrumbs, div#loginDetails {
+	font-size: 10px;	
+	color:white;
+	text-align:left;
+}
+div#breadcrumbs {
+	position: relative;
+	color: #123351;
+	display: block;
+	background: #c6d7e7;	
+	padding: 3px 0px 3px 20px;
+}
+div#loginDetails {
+	position: absolute;
+	top: 34px;
+	left: 20px;
+	z-index:12;
+}
+div#contentholder {
+	position: relative;
+	padding:20px 20px 0px 20px;
+	text-align: left;
+	margin: 0px;
+	min-height: 200px;
+}

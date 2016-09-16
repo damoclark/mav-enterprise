@@ -9,13 +9,13 @@
 // @grant         GM_info
 // @grant         GM_addStyle
 // @grant         GM_xmlhttpRequest
-// @require       /mav/js/jquery-1.9.1.js
-// @require       /mav/js/jquery-ui-1.10.2.custom.min.js
+// @require       jquery-ui/external/jquery/jquery.js
+// @require       jquery-ui/jquery-ui.js
 // @require       GM_XHR.js
 // @require       balmi.user.js
 // @require       mav_config.js
 // @resource      mavConfig mav_config.json
-// @resource      jQueryCSS /mav/js/jquery-ui-1.10.2.custom.min.css
+// @resource      jQueryCSS jquery-ui/jquery-ui.css
 // @resource      mavInjectHtml mavInject.html
 // @resource      busyAnimationDiv busyAnimation.html
 // @resource      mavCSS MAVStyles.css
