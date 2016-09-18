@@ -1426,6 +1426,11 @@ function mavSelfUpdate()
 var mav_config = new mav_config(GM_getResourceText('mavConfig')) ;
 
 /**
+ * @type string Absolute URI to the home page of Moodle server
+ */
+var moodleServer = mav_config.getMoodleServer() ;
+
+/**
  * @type string Absolute URI to the location of balmi API scripts
  */
 var mavServerApi = mav_config.getServerApi() ;

@@ -1,5 +1,7 @@
 
 {
+	"moodle_server": "http://moodle.com",
+
 	"mav_server": "https://server.com",
 
 	"mav_server_html": "https://server.com/mav",

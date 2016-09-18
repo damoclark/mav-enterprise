@@ -9,6 +9,7 @@
  *
  * The constructor takes an Object containing configuration information
  * with the following property names:
+ * moodle_server: uri to the Moodle website
  * gm_script_path: uri to the gmwww directory
  * mav_server_html: uri to the www directory
  * mav_server_api: uri to the www/api directory
@@ -20,6 +21,8 @@
  *
  * getGmScriptPath - Returns the path to the moodleActivityViewer.user.js script
  * from whence it was installed
+ *
+ * getMoodleServer - Absolute URI to the home page of the Moodle site
  *
  * getServerApi - Absolute URI to the path from which API related AJAX scripts
  * can be called using GM_xmlhttpRequest function. So you simply prepend this
@@ -128,6 +131,16 @@ function mav_config(conf)
 		return config['gm_script_path'] ;
 	}
 	
+	/**
+ 	 * Get the uri to the Moodle server home page
+ 	 *
+ 	 * @returns {string} URI to the Moodle home page
+ 	 */
+	this.getMoodleServer = function()
+	{
+		return config['moodle_server'] ;
+	}
+
 	/**
 	 * Get the absolute URI to the root path of mav server static HTML related files
 	 * such as busy animations and help links
