@@ -1242,7 +1242,9 @@ function updatePage(data)
 function addCSS(css)
 {
 	//Make jQuery images load from mav server
-	css = css.replace(/url\((images\/ui-[^\.]+.png)\)/gm,"url(" + mavJqueryHtml + "/$1)") ;
+	if(debug) console.log("css before="+css) ;
+	css = css.replace(/url\(['"]?(.*?images\/ui-[^\.]+.png)['"]?\)/gm,"url('" + mavJqueryHtml + "/$1')") ;
+	if(debug) console.log("css after="+css) ;
 	GM_addStyle(css) ;	
 }
 
