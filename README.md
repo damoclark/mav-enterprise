@@ -2,7 +2,7 @@
 
 # MAV - Enterprise Edition #
 
-Moodle Activity Viewer is an open-source Greasemonkey user script that visualises student activity within the Moodle LMS.  It does this not with tables or graphs, but instead using a heat map - colouring links lighter or darker according to how often they are accessed as illustrated below.
+Moodle Activity Viewer is an open-source Greasemonkey user script and web-service counterpart that visualises student activity within the Moodle LMS.  It does this not with tables or graphs, but instead using a heat map - colouring links lighter or darker according to how often they are accessed as illustrated below.
 
 ![MAV Image](http://damosworld.files.wordpress.com/2013/08/course1_1.png?w=468&h=341)
 
@@ -26,14 +26,16 @@ The following is required to make use of MAV Enterprise Edition:
 * Greasemonkey Firefox Addon
 * A webserver (e.g. Apache) to install the web-service component of MAV
 * PHP 5.4+
-* Moodle 2.6+ Source Code
+* Moodle 2.2+ Source Code
 * Access to the Moodle DB (or a copy) by the MAV web-service
    The web service has to query a database to get the usage information. It's currently written to use an aggregated table calculated from the Moodle database.
 * A little patience, as this is still emerging and experimental software
 
 ## Installation ##
 
-MAV Enterprise Edition was written for use at CQUniversity Australia.  Installing MAV Enterprise Edition for users at your institution will require a little effort on your part. It is advised to contact the creator, [Damien Clark](mailto:damo.clarky@gmail.com) for assistance.  An installation guide will be made available soon.
+MAV Enterprise Edition was written for use at CQUniversity Australia.  Installing MAV Enterprise Edition for users at your institution will require a little effort and patience on your part.  Feedback or Pull Requests on improving installation scripts and guides are most welcome.
+
+An [Installation Guide](INSTALL.md) is available to step you through the process.  If you require assistance, contact the creator, [Damien Clark](mailto:damo.clarky@gmail.com).
 
 ## A quick tour of the features ##
 
