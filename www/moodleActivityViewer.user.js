@@ -154,8 +154,8 @@ function mavSetMenuElementText()
 {
 	//Set text according to whether its already on or off (including img tag)
 	var switchLinkText = (isMavOn()) ? 'Turn Activity View Off' : 'Turn Activity View On' ;
-	document.getElementById('mav_activityViewerElement').innerHTML =
-	'<img src="http://moodle.server.com/theme/image.php?theme=theme1&amp;image=i%2Fnavigationitem&amp;rev=391" title="moodle" class="smallicon navicon" alt="moodle">' + switchLinkText ;
+
+	$('#mav_activityViewerElement > span').text(switchLinkText) ;
 }
 
 

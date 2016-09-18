@@ -555,8 +555,16 @@ function balmi(d)
 				}
 				
 				//Icon for little dot next to menu items
-				var navigationitemIcon =
-					'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADhJREFUeNpiYBgFFANGbIIzZ858D6QE0IQ/pKenC6KrZcJhsACRYjgNIBoMXgM+ECk2CqgBAAIMAFgLBwwGlkLjAAAAAElFTkSuQmCC' ;
+				var navigationitemIcon ;
+				if(document.querySelector('img.smallicon.navicon'))
+				{
+					navigationitemIcon = document.querySelector('img.smallicon.navicon').getAttribute('src') ;
+				}
+				else
+				{
+					navigationitemIcon =
+						'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADhJREFUeNpiYBgFFANGbIIzZ858D6QE0IQ/pKenC6KrZcJhsACRYjgNIBoMXgM+ECk2CqgBAAIMAFgLBwwGlkLjAAAAAElFTkSuQmCC' ;
+				}
 				var img = document.createElement('img') ;
 				img.setAttribute('class','smallicon navicon') ;
 				if (menuitem[i].hasOwnProperty('image'))
@@ -584,9 +592,11 @@ function balmi(d)
 				{
 					text = menuitem[i].text ;
 				}
+				var span = document.createElement('span') ;
 				var textNode = document.createTextNode(text)
+				span.appendChild(textNode) ;
 	
-				a.appendChild(textNode) ;
+				a.appendChild(span) ;
 			}
 			var tmp = document.createElement("div");
 			tmp.appendChild(li);
