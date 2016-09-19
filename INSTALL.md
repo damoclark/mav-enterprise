@@ -571,7 +571,7 @@ the public schema of the destination database.
 The `moodle` schema is what MAV will access according to your Postgresql `search_path`.
 
 For the postgreql role that accesses this DB using MAV, it needs to have its
-path set to include the schema 'moodle' rather than 'public' which is the default.  Also, including the schema name given to your mav tables in the []previous step](#create-the-mav-database-tables). To do this, and using the defaults in this guide, use the following command logged in as the postgresql role that will query the DB from MAV.
+path set to include the schema 'moodle' rather than 'public' which is the default.  Also, including the schema name given to your mav tables in the [previous step](#create-the-mav-database-tables). To do this, and using the defaults in this guide, use the following command logged in as the postgresql role that will query the DB from MAV.
 
 ```sql
 ALTER ROLE <role_name> in DATABASE <database_name> SET search_path TO moodle ;
