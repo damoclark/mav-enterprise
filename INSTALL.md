@@ -1,6 +1,5 @@
 # MAV Enterprise Installation Instructions #
 
-
 This document is a guide to installing MAV-Enterprise with your Moodle LMS.
 
 [TOC]
@@ -67,8 +66,6 @@ $ sudo yum install php php-cli php-ldap php-mbstring php-xmlrpc httpd-tools http
 
 **Note** A [Google Chrome](https://www.google.com.au/chrome/browser/desktop/) version using [Tampermonkey](https://tampermonkey.net/) is planned for the near future.
 
-**Snapshot2**
-
 # Server Installation #
 
 This section will focus on the server installation of MAV.  This can be performed on an existing Moodle server, or a completed separate server.  The only requirement is that the MAV server have the ability to connect to an update to date copy of (or directly to) the Moodle Database.  
@@ -113,7 +110,7 @@ $CFG = new stdClass();
 $CFG->dbtype    = 'pgsql';
 $CFG->dblibrary = 'native';
 $CFG->dbhost    = 'localhost';
-$CFG->dbname    = 'moodle27he_prod';
+$CFG->dbname    = 'moodle30';
 $CFG->dbuser    = 'moodle';
 $CFG->dbpass    = '';
 $CFG->prefix	  = 'mdl_';
@@ -123,8 +120,8 @@ $CFG->dboptions = array (
   'dbsocket' => '',
 );
 
-$CFG->wwwroot   = 'https://moodle.cqu.edu.au';
-$CFG->dataroot  = '/usr/local/www/moodledata27he_prod';
+$CFG->wwwroot   = 'https://moodle.server.com';
+$CFG->dataroot  = '/usr/local/www/moodledata';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;
@@ -187,8 +184,6 @@ include_path = "/usr/local/www/ignition:/usr/share/pear:/usr/share/php"
 ;
 ```
 
-
-
 ### Clone the MAV Git Repo ###
 ```bash
 $ cd /usr/local/www
@@ -234,25 +229,28 @@ $ vi mav.ini
 The contents of the `mav.ini.sample` file are:
 
 ```ini
-[moodle27_prod]
+[moodle30]
 ; Moodle home page address for this Moodle site
 moodle_home_url = "moodle.com/"
 ; Moodle software installation (local)
-moodle_install = "/usr/local/www/moodle27_prod/"
+moodle_install = "/usr/local/www/moodle/"
 ; Logging system used (Moodle 2.6+) (standard|legacy)
 moodle_logging = "standard"
 ; Moodle version (major.minor)
-moodle_version = 2.7
+moodle_version = 3.0
 ; Moodle database table name prefix (DBPREFIX in config.php)
 dbprefix = 'mdl_'
-; Name of the stanza (section) in PDOdatabase ini file to use to connect to the
+; Name of the stanza (section) in database.ini file to use to connect to the
 ; DB associated with the above moodle_url
-pdodatabase = "MOODLE27_PROD"
+pdodatabase = "MOODLE30"
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; The connected user from the pdodatabase option must have permission to:
 ; create, drop, select, update, delete, insert
 ; on these tables in their tablespace/schema
+;
+; Database schema defaults to 'mav'.  If you wish to use an alternate name,
+; then you will need to adjust accordingly here.
 ;
 ; Name of the summary table in Moodle DB
 table_summary = "mav.logstore_standard_log_summary"
@@ -267,85 +265,54 @@ table_summary_index = "logstore_standard_log_summary_ix"
 ; Name of the index on the summary_update table in Moodle DB
 table_update_index = "logstore_standard_log_summary_update_ix"
 
-[moodle27_loadtest]
+[moodle22]
 ; Moodle home page address for this Moodle site
-moodle_home_url = "moodle27.com/"
+moodle_home_url = "moodle-archive.com/"
 ; Moodle software installation (local)
-moodle_install = "/usr/local/www/moodle27_sandpit/"
-; Logging system used (Moodle 2.6+) (standard|legacy)
-moodle_logging = "standard"
-; Moodle version (major.minor)
-moodle_version = 2.7
-; Moodle database table name prefix (DBPREFIX in config.php)
-dbprefix = 'mdl_'
-; Name of the stanza (section) in PDOdatabase ini file to use to connect to the
-; DB associated with the above moodle_url
-pdodatabase = "MOODLE27_LOADTEST"
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; The connected user from the pdodatabase option must have permission to:
-; create, drop, select, update, delete, insert
-; on these tables in their tablespace/schema
-;
-; Name of the summary table in Moodle DB
-table_summary = "mav.logstore_standard_log_summary"
-; Name of the table used to update click counts (and renamed into table_summary)
-table_update = "mav.logstore_standard_log_summary_update"
-; Name of the summary state table in Moodle DB
-table_state = "mav.logstore_standard_log_summary_state"
-; Name of the batch table in Moodle DB
-table_batch = "mav.logstore_standard_log_summary_batch"
-; Name of the index on the summary table in Moodle DB
-table_summary_index = "logstore_standard_log_summary_ix"
-; Name of the index on the summary_update table in Moodle DB
-table_update_index = "logstore_standard_log_summary_update_ix"
-
-[moodle22_prod]
-; Moodle home page address for this Moodle site
-moodle_home_url = "moodle-legacy.com/"
-; Moodle software installation (local)
+; moodle_install Not needed for legacy logging system
 moodle_install = ""
 ; Logging system used (Moodle 2.6+) (standard|legacy)
 moodle_logging = "legacy"
 ; Moodle version (major.minor)
 moodle_version = 2.2
 ; Moodle database table name prefix (DBPREFIX in config.php)
-dbprefix = 'm_'
-; Name of the stanza (section) in PDOdatabase ini file to use to connect to the
+dbprefix = 'mdl_'
+; Name of the stanza (section) in database.ini file to use to connect to the
 ; DB associated with the above moodle_url
-pdodatabase = "MOODLE22_PROD"
+pdodatabase = "MOODLE22"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; The connected user from the pdodatabase option must have permission to:
 ; create, drop, select, update, delete, insert
 ; on these tables in their tablespace/schema
 ;
 ; Name of the summary table in Moodle DB
-table_summary = "m_log_summary"
+table_summary = "mdl_log_summary"
 ; Name of the index on the summary table in Moodle DB
-table_summary_index = "m_log_summary_url_ix"
+table_summary_index = "mdl_log_summary_url_ix"
 ```
 
-The sample contains three Moodle site entries.  One for an older version of Moodle (2.2) that used the older `mdl_log` table format for logging.  And two newer versions (2.7) which use the new Logging2 framework and the `mdl_logstore_standard_log` table format.
+The sample contains two Moodle site entries.  One for an older version of Moodle (2.2) that used the older `mdl_log` table format for logging.  And a second entry for version 2.7 which use the new Logging2 framework and the `mdl_logstore_standard_log` table format.
 
-The configuration options to pay attention to are:
-**Snapshot3**
+If you decide to use the default table names for MAV, then you need only pay attention to the following settings:
+
 ```ini
-[moodle27_prod]
+[moodle30]
 ; Moodle home page address for this Moodle site
 moodle_home_url = "moodle.com/"
 ; Moodle software installation (local)
-moodle_install = "/usr/local/www/moodle27_prod/"
+moodle_install = "/usr/local/www/moodle/"
 ; Logging system used (Moodle 2.6+) (standard|legacy)
 moodle_logging = "standard"
 ; Moodle version (major.minor)
-moodle_version = 2.7
+moodle_version = 3.0
 ; Moodle database table name prefix (DBPREFIX in config.php)
 dbprefix = 'mdl_'
-; Name of the stanza (section) in PDOdatabase ini file to use to connect to the
+; Name of the stanza (section) in database.ini file to use to connect to the
 ; DB associated with the above moodle_url
-pdodatabase = "MOODLE27_PROD"
+pdodatabase = "MOODLE30"
 ```
 
-The stanza name (i.e. `[moodle27_prod]`) should be descriptive of your Moodle site, especially if you have multiple Moodle sites.  `pdodatabase` points to the stanza name for your `{MAV}/etc/database.ini` file that contains the connection details for your Moodle database host.  Let's configure that next.
+The stanza name (i.e. `[moodle30]`) should be descriptive of your Moodle site, especially if you have multiple Moodle sites.  `pdodatabase` points to the stanza name for your `{MAV}/etc/database.ini` file that contains the connection details for your Moodle database host.  Let's configure that next.
 
 ### Configure database.ini ###
 
@@ -362,35 +329,68 @@ $ vi database.ini
 The contents of the `database.ini.sample` file are:
 
 ```ini
-[MOODLE27_PROD]
-; moodle 2.7 prod database
+[MOODLE30]
+; moodle 3.0 database
 adapter = pgsql
-host = moodledb.com
-dbname = moodle27_prod
+host = localhost
+dbname = moodle30
 port = 5432
 username = moodle
 password = ''
 
-[MOODLE27_LOADTEST]
-; moodle 2.7 loadtest database
+[MOODLE22]
+; moodle 2.2 database
 adapter = pgsql
-host = moodledb.com
-dbname = moodle27_loadtest
-port = 5433
-username = moodle
-password = ''
-
-[MOODLE22_PROD]
-; moodle 2.2 prod database
-adapter = pgsql
-host = moodledb.com
-dbname = moodle2_prod
+host = localhost
+dbname = moodle22
 port = 5432
 username = moodle
 password = ''
 ```
 
-As previously mentioned, the stanza names `MOODLE27_PROD`, `MOODLE27_LOADTEST` and `MOODLE22_PROD` match the `pdodatabase` option for each Moodle site in the `mav.ini` file.  Remove any extraneous entries in this file, and change the settings accordingly for your site.
+As previously mentioned, the stanza names `MOODLE30` and `MOODLE22` match the `pdodatabase` option for each Moodle site in the `mav.ini` file.  Remove any extraneous entries in this file, and change the settings accordingly for your site.
+
+### Configure MAV Userscript ###
+
+The metadata at the top of the `www/moodleActivityViewer.user.js` user script tells Greasemonkey how to enact the userscript.  The existing metadata looks like so:
+
+```javascript
+// ==UserScript==
+// @name          Moodle Activity Viewer
+// @namespace	    http://damos.world
+// @description	  Re-render Moodle pages to show student usage
+// @version       0.8.2
+// @grant         GM_getValue
+// @grant         GM_setValue
+// @grant         GM_getResourceText
+// @grant         GM_info
+// @grant         GM_addStyle
+// @grant         GM_xmlhttpRequest
+// @require       jquery-ui/external/jquery/jquery.js
+// @require       jquery-ui/jquery-ui.js
+// @require       GM_XHR.js
+// @require       balmi.user.js
+// @require       mav_config.js
+// @resource      mavConfig mav_config.json
+// @resource      jQueryCSS jquery-ui/jquery-ui.css
+// @resource      mavInjectHtml mavInject.html
+// @resource      busyAnimationDiv busyAnimation.html
+// @resource      mavCSS MAVStyles.css
+// @include       https://moodle.server.com/*
+// @include       http://moodle.server.com/*
+// @include       http://mav/*
+// ==/UserScript==
+```
+
+It is unnecessary to change any of these options with the exception of `@include`.  This option tells Greasemonkey on which website addresses this userscript should run.  You need to replace the existing `@include` examples in the `www/moodleActivityViewer.user.js` file with one that points to your Moodle main site.  Each of the examples has an asterisk `*` on the end.  This asterisk is a wildcard character, meaning it will match anything in its place within the url.  So by ending the `@include` option with an asterisk, the MAV userscript will execute on any page of the Moodle site.  This is what we want.  As an example, if your Moodle site is hosted at:
+
+`https://moodle.cqu.edu.au`
+
+Then the `@include` option will be given as:
+
+`// @include      https://moodle.cqu.edu.au/*`
+
+**Note** the two `//` at the start of the line with a space before the `@` are required.
 
 ## Configure Apache for MAV ##
 
@@ -409,7 +409,7 @@ Firstly, go through the file and ensure that all instances of `/usr/local/www/ma
 
 MAV presently uses HTTP Auth for authentication.  This means the browser will present a login dialog asking for a username and password whenever the MAV server is accessed by the MAV Greasemonkey Scripts.  This can be configured using whatever Apache authentication options you choose.  The sample configuration file includes options for authentication against an LDAP server.
 
-According to the complete instructions in this guide, your `mav.conf` Apache configuration file should look something like:
+If you have used the installation locations according to this guide, your `mav.conf` Apache configuration file should look something like:
 
 ```apache
 #Apache 2.4
@@ -448,22 +448,13 @@ According to the complete instructions in this guide, your `mav.conf` Apache con
     SetEnv APPCONF "etc/mav.ini"
 
     #Set debug level for development server
-    SetEnv DEBUG "9"
+    #SetEnv DEBUG "9"
     
     #################################
     #################
     #This environment variable flags to the system that it is running on dev
     #box.  Do not set this env variable on production machine
-    SetEnv DEV "1"
-</Directory>
-
-#Publish separate directory for the gm scripts without authentication
-<Directory "/usr/local/www/mav/gmwww">
-
-    Options Indexes FollowSymLinks
-    AllowOverride none
-
-    Require all granted
+    #SetEnv DEV "1"
 
     #Do not cache any greasemonkey file types - browser must download anew when updating
     #http://www.askapache.com/htaccess/using-http-headers-with-htaccess.html#100_Prevent_Files_cached
@@ -496,11 +487,14 @@ According to the complete instructions in this guide, your `mav.conf` Apache con
     SetEnv DBCONF "/usr/local/www/mav/etc/database.ini"
 </Directory>
 
-Alias /mav/gm "/usr/local/www/mav/gmwww"
+#Host MAV from /mav path on the server.  This is useful if hosting MAV on same
+#host as Moodle
 Alias /mav "/usr/local/www/mav/www"
 ```
 
-Ensure that the `apache` UNIX user on your RHEL distribution has permissions to your installation location for MAV.
+**Note** the `Alias /mav` option will serve the mav installation page from `/mav` on your host.  You may wish to change this.
+
+Also ensure that the `apache` UNIX user on your RHEL/CentOS distribution has permissions to your installation location for MAV.
 
 ```bash
 $ cd /usr/local/www
@@ -559,9 +553,6 @@ $ php initialise_db.php --dry-run --update=moodle30
 ```bash
 $ php initialise_db.php --update=moodle30
 ```
-
-**snapshot4**
-**initialise_db.php has been run**
 
 ## Restore Production Moodle DB into MAV Database ##
 If MAV is accessing a copy of your Moodle database, then you will need to refresh this copy, perhaps on a nightly basis.  This is so MAV can update its activity counts.  To do this, schedule via cron, the `update_db.sh` shell script.
@@ -669,3 +660,4 @@ Complete the first two steps on the installation page (install Greasemonkey, and
 The menu to activate MAV will appear in  `Course administration` under the `Settings` block once you navigate to a Moodle course site.
 
 Feedback or pull requests for this installation guide are most welcome. :)
+

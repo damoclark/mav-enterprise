@@ -1,22 +1,25 @@
-[moodle27_prod]
+[moodle30]
 ; Moodle home page address for this Moodle site
 moodle_home_url = "moodle.com/"
 ; Moodle software installation (local)
-moodle_install = "/usr/local/www/moodle27_prod/"
+moodle_install = "/usr/local/www/moodle/"
 ; Logging system used (Moodle 2.6+) (standard|legacy)
 moodle_logging = "standard"
 ; Moodle version (major.minor)
-moodle_version = 2.7
+moodle_version = 3.0
 ; Moodle database table name prefix (DBPREFIX in config.php)
 dbprefix = 'mdl_'
-; Name of the stanza (section) in PDOdatabase ini file to use to connect to the
+; Name of the stanza (section) in database.ini file to use to connect to the
 ; DB associated with the above moodle_url
-pdodatabase = "MOODLE27_PROD"
+pdodatabase = "MOODLE30"
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; The connected user from the pdodatabase option must have permission to:
 ; create, drop, select, update, delete, insert
 ; on these tables in their tablespace/schema
+;
+; Database schema defaults to 'mav'.  If you wish to use an alternate name,
+; then you will need to adjust accordingly here.
 ;
 ; Name of the summary table in Moodle DB
 table_summary = "mav.logstore_standard_log_summary"
@@ -31,58 +34,27 @@ table_summary_index = "logstore_standard_log_summary_ix"
 ; Name of the index on the summary_update table in Moodle DB
 table_update_index = "logstore_standard_log_summary_update_ix"
 
-[moodle27_loadtest]
+[moodle22]
 ; Moodle home page address for this Moodle site
-moodle_home_url = "moodle27.com/"
+moodle_home_url = "moodle-archive.com/"
 ; Moodle software installation (local)
-moodle_install = "/usr/local/www/moodle27_sandpit/"
-; Logging system used (Moodle 2.6+) (standard|legacy)
-moodle_logging = "standard"
-; Moodle version (major.minor)
-moodle_version = 2.7
-; Moodle database table name prefix (DBPREFIX in config.php)
-dbprefix = 'mdl_'
-; Name of the stanza (section) in PDOdatabase ini file to use to connect to the
-; DB associated with the above moodle_url
-pdodatabase = "MOODLE27_LOADTEST"
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; The connected user from the pdodatabase option must have permission to:
-; create, drop, select, update, delete, insert
-; on these tables in their tablespace/schema
-;
-; Name of the summary table in Moodle DB
-table_summary = "mav.logstore_standard_log_summary"
-; Name of the table used to update click counts (and renamed into table_summary)
-table_update = "mav.logstore_standard_log_summary_update"
-; Name of the summary state table in Moodle DB
-table_state = "mav.logstore_standard_log_summary_state"
-; Name of the batch table in Moodle DB
-table_batch = "mav.logstore_standard_log_summary_batch"
-; Name of the index on the summary table in Moodle DB
-table_summary_index = "logstore_standard_log_summary_ix"
-; Name of the index on the summary_update table in Moodle DB
-table_update_index = "logstore_standard_log_summary_update_ix"
-
-[moodle22_prod]
-; Moodle home page address for this Moodle site
-moodle_home_url = "moodle-legacy.com/"
-; Moodle software installation (local)
+; moodle_install Not needed for legacy logging system
 moodle_install = ""
 ; Logging system used (Moodle 2.6+) (standard|legacy)
 moodle_logging = "legacy"
 ; Moodle version (major.minor)
 moodle_version = 2.2
 ; Moodle database table name prefix (DBPREFIX in config.php)
-dbprefix = 'm_'
-; Name of the stanza (section) in PDOdatabase ini file to use to connect to the
+dbprefix = 'mdl_'
+; Name of the stanza (section) in database.ini file to use to connect to the
 ; DB associated with the above moodle_url
-pdodatabase = "MOODLE22_PROD"
+pdodatabase = "MOODLE22"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; The connected user from the pdodatabase option must have permission to:
 ; create, drop, select, update, delete, insert
 ; on these tables in their tablespace/schema
 ;
 ; Name of the summary table in Moodle DB
-table_summary = "m_log_summary"
+table_summary = "mdl_log_summary"
 ; Name of the index on the summary table in Moodle DB
-table_summary_index = "m_log_summary_url_ix"
+table_summary_index = "mdl_log_summary_url_ix"

@@ -1,26 +1,17 @@
-[MOODLE27_PROD]
-; moodle 2.7 prod database
+[MOODLE30]
+; moodle 3.0 database
 adapter = pgsql
-host = moodledb.com
-dbname = moodle27_prod
+host = localhost
+dbname = moodle30
 port = 5432
 username = moodle
 password = ''
 
-[MOODLE27_LOADTEST]
-; moodle 2.7 loadtest database
+[MOODLE22]
+; moodle 2.2 database
 adapter = pgsql
-host = moodledb.com
-dbname = moodle27_loadtest
-port = 5433
-username = moodle
-password = ''
-
-[MOODLE22_PROD]
-; moodle 2.2 prod database
-adapter = pgsql
-host = moodledb.com
-dbname = moodle2_prod
+host = localhost
+dbname = moodle22
 port = 5432
 username = moodle
 password = ''
