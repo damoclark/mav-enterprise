@@ -1012,6 +1012,7 @@ function getStudentAccess(link,linkText)
 					noaccessStudents.push(value.username);
 				})
 				
+				$("#studentNoActivityList").html("<p>These students <strong>HAVE NOT</strong> accessed this resource/activity</p>" + tableHeader + tableContent + tableFooter) ;
 			}
 			else {
 				$("#studentNoActivityList").html("<p>All students have accessed this link</p>") ;
